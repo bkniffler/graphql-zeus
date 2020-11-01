@@ -5,7 +5,7 @@ export const VALUETYPES = 'ValueTypes';
 
 const resolveValueType = (t: string): string => `${VALUETYPES}["${t}"]`;
 
-type GqlTypes = 'Int' | 'Float' | 'Boolean' | 'ID' | 'String';
+type GqlTypes = 'Int' | 'Float' | 'Boolean' | 'ID' | 'uuid' | 'String';
 type TSTypes = 'number' | 'boolean' | 'string';
 
 const typeScriptMap: Record<GqlTypes, TSTypes> = {
@@ -13,6 +13,7 @@ const typeScriptMap: Record<GqlTypes, TSTypes> = {
   Float: 'number',
   Boolean: 'boolean',
   ID: 'string',
+  uuid: 'string',
   String: 'string',
 };
 const toTypeScriptPrimitive = (a: GqlTypes): string => typeScriptMap[a] || a;
